@@ -28,19 +28,20 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
+        val proximaTela1 = Intent(this, MyGiftActivity::class.java)
+        val proximaTela2 = Intent(this, Activity_FriendGift::class.java)
 
         btAddGift.setOnClickListener { view ->
-            //startActivity(Intent(this, MyGiftActivity::class.java))
 
-            val proximaTela = Intent(this, MyGiftActivity::class.java)
-            proximaTela.putExtra("PHONE", "11-91111-1111")
-            startActivity(proximaTela)
+            proximaTela1.putExtra("PHONE", "11-91111-1111")
+            startActivity(proximaTela1)
 
         }
 
         pessoaAdapter = PessoaAdapter(this, pessoaList, object: PessoaAdapter.clickAction{
             override fun tapPerson(pessoa: Pessoa) {
-
+                proximaTela2.putExtra("PHONE", pessoa.telefone)
+                startActivity(proximaTela2)
             }
         })
         recyclerViewPessoas.adapter = pessoaAdapter

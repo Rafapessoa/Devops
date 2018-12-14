@@ -21,6 +21,8 @@
         </activity>
         <activity android:name=".MyGiftActivity">
         </activity>
+        <activity android:name=".Activity_FriendGift">
+        </activity>
     </application>
 
 </manifest>
